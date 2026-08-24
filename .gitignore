@@ -1,0 +1,6 @@
+.env
+*.log
+kubeconfig*
+*.tfstate
+*.tfstate.*
+.DS_Store
