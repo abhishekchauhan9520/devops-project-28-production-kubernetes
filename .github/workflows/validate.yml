@@ -1,0 +1,16 @@
+name: Validate production Kubernetes platform
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install PyYAML==6.0.3
+      - run: python3 tests/test_manifests.py
